@@ -1,7 +1,6 @@
 import React from 'react';
+import Header from './Header/Header';
 const App = () => (
-    <div>
-        <p>A bare bones application!</p>
-    </div>
+    <Header />
 )
 export default App
