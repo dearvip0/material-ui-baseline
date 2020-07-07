@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./Header/Header";
-import Dashboard from "../pages/dashboard/Dashboard";
-const App = () => <Dashboard />;
+import Login from "../pages/login/Login";
+// import Dashboard from "../pages/dashboard/Dashboard";
+const App = () => <Login />;
 export default App;
