@@ -3,6 +3,8 @@ const drawerWidth = 240;
 export default makeStyles((theme) => ({
   root: {
     display: "flex",
+    maxWidth: "100vw",
+    overflowX: "hidden",
   },
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed

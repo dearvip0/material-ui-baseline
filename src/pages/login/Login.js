@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import { withRouter } from "react-router-dom";
 import useStyles from "./styles";
 import {
@@ -17,6 +17,9 @@ import {
 import { LockOutlined as LockOutlinedIcon } from "@material-ui/icons";
 function Login() {
   const classes = useStyles();
+  var [nameValue, setNameValue] = useState("");
+  var [loginValue, setLoginValue] = useState("");
+  var [passwordValue, setPasswordValue] = useState("");
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -36,8 +39,18 @@ function Login() {
               required
               fullWidth
               id="email"
+              InputProps={{
+                classes: {
+                  underline: classes.textFieldUnderline,
+                  input: classes.textField,
+                }
+              }}
+              value={loginValue}
+              onChange={e => setLoginValue(e.target.value)}
               label="Email Address"
+              placeholder="Email Address"
               name="email"
+              type="email"
               autoComplete="email"
               autoFocus
             />
@@ -50,6 +63,15 @@ function Login() {
               label="Password"
               type="password"
               id="password"
+              InputProps={{
+                classes: {
+                  underline: classes.textFieldUnderline,
+                  input: classes.textField,
+                },
+              }}
+              value={passwordValue}
+              onChange={e => setPasswordValue(e.target.value)}
+              placeholder="Password"
               autoComplete="current-password"
             />
             <FormControlLabel
