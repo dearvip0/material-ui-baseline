@@ -1,18 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ThemeProvider } from "@material-ui/styles";
-import { CssBaseline } from "@material-ui/core";
-import themes from './themes/themes'
 import App from "./components/App";
 import * as serviceWorker from './serviceWorker';
-
+import { createBrowserHistory } from "history";
+import { Route, Switch, Router, Redirect } from 'react-router';
+import Album from './pages/Album/Album';
+const hist = createBrowserHistory();
 ReactDOM.render(
-  <React.StrictMode>
-    <ThemeProvider theme={themes.default}>
-      <CssBaseline />
-      <App />
-    </ThemeProvider>
-  </React.StrictMode>,
+  <Router history={hist}>
+    <Switch>
+      <Route path="/admin" component={App}>
+      </Route>
+      <Route path="/page/Album" component={Album}></Route>
+      <Redirect from="/" to="/admin/dashboard" />
+    </Switch>
+  </Router>,
   document.getElementById('root')
 );
 serviceWorker.unregister();

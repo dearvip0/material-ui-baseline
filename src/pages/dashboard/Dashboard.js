@@ -23,6 +23,7 @@ import Drawer from "@material-ui/core/Drawer";
 import Chart from "./Chart";
 import Deposits from "./Deposits";
 import Orders from "./Orders";
+import ListRouter from "./components/List";
 export default function Dashboard() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
@@ -83,9 +84,7 @@ export default function Dashboard() {
           </IconButton>
         </div>
         <Divider />
-        <List>{mainListItems}</List>
-        <Divider />
-        <List>{secondaryListItems}</List>
+        <ListRouter />
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
