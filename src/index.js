@@ -5,6 +5,8 @@ import * as serviceWorker from './serviceWorker';
 import { createBrowserHistory } from "history";
 import { Route, Switch, Router, Redirect } from 'react-router';
 import Album from './pages/Album/Album';
+import Blog from './pages/Blog/Blog';
+
 const hist = createBrowserHistory();
 ReactDOM.render(
   <Router history={hist}>
@@ -12,6 +14,7 @@ ReactDOM.render(
       <Route path="/admin" component={App}>
       </Route>
       <Route path="/page/Album" component={Album}></Route>
+      <Route path="/page/Blog" component={Blog} ></Route>
       <Redirect from="/" to="/admin/dashboard" />
     </Switch>
   </Router>,
