@@ -1,7 +1,7 @@
 import React from 'react';
 import BlogHeader from './components/BlogHeader';
-import BlogFooter from './components/BlogFooter';
-import { makeStyles, CssBaseline, Grid } from '@material-ui/core';
+// import BlogFooter from './components/BlogFooter';
+import { makeStyles, CssBaseline, Grid, Typography, Container, Box } from '@material-ui/core';
 import {
     GitHub as GitHubIcon,
     Facebook as FacebookIcon,
@@ -14,6 +14,7 @@ import Sidebar from './components/Sidebar';
 import post1 from './components/_posts/blog-post.1.md';
 import post2 from './components/_posts/blog-post.2.md';
 import post3 from './components/_posts/blog-post.3.md';
+import { Link } from 'react-router-dom';
 const useStyles = makeStyles(theme => ({
     mainGrid: {
         marginTop: theme.spacing(3),
@@ -21,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const sections = [
-    { title: 'Dashboard', url: '#' },
+    { title: 'Dashboard', url: '/admin/dashboard' },
     { title: 'Design', url: '#' },
     { title: 'Culture', url: '#' },
     { title: 'Business', url: '#' },
@@ -82,6 +83,37 @@ const sidebar = {
         { name: 'Facebook', icon: FacebookIcon },
     ],
 };
+
+const footers = [
+    {
+        title: 'Company',
+        description: ['Team', 'History', 'Contact us', 'Locations'],
+    },
+    {
+        title: 'Features',
+        description: [
+            'Cool stuff',
+            'Random feature',
+            'Team feature',
+            'Developer stuff',
+            'Another one',
+        ],
+    },
+    {
+        title: 'Resources',
+        description: [
+            'Resource',
+            'Resource name',
+            'Another resource',
+            'Final resource',
+        ],
+    },
+    {
+        title: 'Legal',
+        description: ['Privacy policy', 'Terms of use'],
+    },
+];
+
 const Blog = (props) => {
     const classes = useStyles();
     return (
@@ -105,9 +137,30 @@ const Blog = (props) => {
                             social={sidebar.social}
                         />
                     </Grid>
+                    {/* <BlogFooter title={footers.title} /> */}
                 </main>
-                <BlogFooter title="Footer"
-                    description="Something here to give the footer a purpose!" />
+                <Container maxWidth="md" component="footer" className={classes.footer}>
+                    <Grid container spacing={4} justify="space-evenly">
+                        {footers.map((footer) => (
+                            <Grid item xs={6} sm={3} key={footer.title}>
+                                <Typography variant="h6" color="textPrimary" gutterBottom>
+                                    {footer.title}
+                                </Typography>
+                                <ul>
+                                    {footer.description.map((item) => (
+                                        <li key={item}>
+                                            <Link href="#" variant="subtitle1" color="textSecondary">
+                                                {item}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </Grid>
+                        ))}
+                    </Grid>
+                    <Box mt={5}>
+                    </Box>
+                </Container>
             </div>
         </React.Fragment>
     )

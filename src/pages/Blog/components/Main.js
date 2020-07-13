@@ -11,8 +11,6 @@ const useStyles = makeStyles(theme => ({
 const Main = (props) => {
     const classes = useStyles();
     const { posts, title } = props;
-    console.log(props);
-
     return (
         <Grid item xs={11} md={8}>
             <Typography variant="h6" guiterBottom>
